@@ -1,0 +1,21 @@
+<h2 class="page-heading">Search Friends</h2>
+<div class="page-container">
+    <div>
+        <form action="/users/search" method="GET">
+            <label>Name</label>
+            <input type="text" name="username" value="<%= searchOptions.username%>">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <div class="search-results">
+        <% users.forEach(user => {%>
+            <% if(user.id != process.env.LOGIN_STATUS) { %>
+                <div class="search-result">
+                    <img height="150" width="100" src="<%= user.profileImagePath%>">
+                    <a href="/users/search/<%=user.id%>"><%= user.username %></a>
+                </div>
+            <% }%>
+        <%}) %>
+    </div>
+    
+</div>

@@ -1,0 +1,14 @@
+<h2 class="page-heading">People you follow</h2>
+<div class="page-container">
+    <div class="search-footer">
+        <a href="/users/search">Find people</a>
+    </div>
+    <div class="search-results">
+        <% followers.forEach(friend => {%>
+            <div class="search-result">
+                <img height="150" width="100" src="<%= friend.profileImagePath%>">
+                <a href="/users/search/<%=friend.id%>"><%= friend.username %></a>
+            </div>
+        <%}) %>
+    </div>
+</div>

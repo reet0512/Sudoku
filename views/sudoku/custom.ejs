@@ -1,0 +1,21 @@
+<h2 class="page-heading">Enter your values and submit</h2>
+<div class="page-container">
+    <form class="page-container" action="/sudoku/solution" method="POST">
+        <div class="sudoku-board">
+        <% for (let i = 0; i < 9; i++) { %>
+            <div class="sudoku-row">
+            <% for(let j = 0; j < 9; j++) {%> 
+                <% if((i < 3 && (j >= 3 && j < 6)) || ((i >= 3 && i < 6) && (j < 3 || j >= 6)) || (i >= 6 && (j >= 3 && j < 6))) { %>
+                    <input class="even-section" name="block-<%= i * 9 + j%>" min="1" max="9" type="number">
+                <%} else { %>
+                    <input class="odd-section" name="block-<%= i * 9 + j%>" min="1" max="9" type="number">
+                <%} %>
+            <% } %>
+            </div>
+        <% } %>
+        </div>
+        <div class="form-submission">
+            <button type="submit">Solve</button>
+        </div>
+    </form>
+</div>

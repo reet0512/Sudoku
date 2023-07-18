@@ -1,0 +1,26 @@
+<div class="page-container">
+    <div class="custom-solution">
+        <% for(let i = 0; i < 9; i++) {%>
+            <div>
+            <% for(let j = 0; j < 9; j++) { %>
+                <% if((i < 3 && (j >= 3 && j < 6)) || ((i >= 3 && i < 6) && (j < 3 || j >= 6)) || (i >= 6 && (j >= 3 && j < 6))) { %>
+                    <% if(gameBoard[(i * 9) + j] != 0) {%>
+                        <span class="even-section"><%= gameBoard[(i * 9) + j]%></span>
+                    <% } else {%>
+                        <input class="even-section" name="block-<%= i * 9 + j%>" min="1" max="9" type="number">
+                    <%} %>
+                <%} else { %>
+                    <% if(gameBoard[(i * 9) + j] != 0) {%>
+                        <span class="odd-section"><%= gameBoard[(i * 9) + j]%></span>
+                    <% } else {%>
+                        <input class="odd-section" name="block-<%= i * 9 + j%>" min="1" max="9" type="number">
+                    <%} %>
+                <%} %>
+            <%} %>
+            </div>
+        <%} %>
+    </div>
+    <div class="user-footer">
+        <a href="/sudoku/game/solution">Solution</a>
+    </div>
+</div>

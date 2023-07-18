@@ -1,0 +1,43 @@
+:root {
+    --nav-title-font-size: 1.5rem;
+}
+
+.header-title {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: var(--nav-title-font-size);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.header-nav {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.header-nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav li {
+    list-style: none;
+    font-size: 1.25rem;
+}
+
+.header-nav li a {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+
+.header-nav li a:hover, .header-title:hover {
+    color: rgb(159, 156, 156);
+    transform: scale(1.05);
+}

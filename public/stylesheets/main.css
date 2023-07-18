@@ -1,0 +1,66 @@
+@import 'shared/variables.css';
+@import 'shared/header.css';
+@import 'shared/forms.css';
+@import 'shared/sudoku/board.css';
+@import 'shared/sudoku/solution.css';
+@import 'shared/user/profile.css';
+@import 'shared/user/search.css';
+
+:root {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+    margin: 0 2vw;
+    padding: 2vh 2vw;
+    background: linear-gradient(to right, rgb(13, 71, 20), rgb(71, 153, 117));
+    color: var(--color-body);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-body);
+    padding: 1vh 1vw;
+    /* border: 2px rgb(255, 255, 255);
+    border-style: solid; */
+}
+
+.page-heading {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-page-button button {
+    font-size: 1.5rem;
+    margin: 2vh 2vw;
+    background-color: #b2bb6a;
+    border-radius: 15%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.home-questions{
+    text-decoration: underline;
+}
+
+.error-message {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    color: rgb(255, 62, 62);
+}

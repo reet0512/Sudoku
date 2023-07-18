@@ -1,0 +1,25 @@
+.search-footer {
+    font-size: 1.25rem;
+    font-style: italic;
+    padding-bottom: 2vh;
+}
+
+.search-footer a{
+    color: rgb(145, 145, 250);
+    text-decoration: underline;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.search-result {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: underline;
+    padding: 2vh 2vw;
+}

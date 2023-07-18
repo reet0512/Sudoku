@@ -1,0 +1,20 @@
+.sudoku-board input{
+    text-align: center;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    margin: 0vh 0vw;
+    border: 1px #808080 solid;
+}
+
+.sudoku-row {
+    margin: 0vh 0vw;
+}
+
+.odd-section {
+    background-color: #91caca;
+}
+
+.even-section{
+    background-color: white;
+}

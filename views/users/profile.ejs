@@ -1,0 +1,38 @@
+<div class="profile-page">
+    <div class="profile-username">
+        <h2><%= user.firstName + " " + user.lastName%></h2>
+        <h4><%= user.username %></h4>
+    </div>
+    <div class="profile-details">
+        <div class="profile-pic">
+            <img src="<%= user.profileImagePath%>">
+        </div>
+        <div>
+            <div class="profile-follow">
+                <div>
+                    <h4><%= user.numFollowers%></h4>
+                    <h4>Follower</h4>
+                </div>
+                <div>
+                    <h4><%= user.follows.length%></h4>
+                    <h4>Following</h4>
+                </div>
+            </div>
+            <div class="profile-action">
+                <a href="/users/<%=user.id%>/edit">Edit</a>
+            </div>
+            <h4>Number of easy games played: <%= user.gamesPlayed[0]%></h4>
+            <h4>Number of medium games played: <%= user.gamesPlayed[1]%></h4>
+            <h4>Number of hard games played: <%= user.gamesPlayed[2]%></h4>
+            <h4>Number of very hard games played: <%= user.gamesPlayed[3]%></h4>
+            <h4>Total number of games played: 
+                <% let sum = 0%>
+                <% for(let i = 0; i < 4; i++) {%>
+                    <% sum += user.gamesPlayed[i]%>
+                <% }%>
+                <%= sum %>
+            </h4>
+        </div>
+    </div>
+</div>
+

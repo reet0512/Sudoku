@@ -1,0 +1,14 @@
+<h2 class="page-heading">Create a New User</h2>
+<div class="page-container">
+    <form class="form-register" action="/users/register" method="POST">
+        <%- include('_form_fields') %>
+        <div class="form-submission">
+            <a href="/">Cancel</a>
+            <button type="submit">Register</button>
+        </div>
+    </form>
+    <div class="user-footer">
+        Already have an account?<a href="/users/login">Login here</a>
+    </div>
+</div>
+

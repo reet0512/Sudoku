@@ -1,0 +1,32 @@
+<h2 class="page-heading">Choose Difficulty</h2>
+<form class="forms" action="/sudoku/new" method="POST">
+    <div>
+        <label class="radio-button" for="easy">
+            <input type="radio" id="easy" name="difficulty" value="easy" checked="checked">
+            Easy
+        </label>
+    </div>
+    <div>
+        <label class="radio-button" for="medium">
+            <input type="radio" id="medium" name="difficulty" value="medium">
+            Medium
+        </label>
+    </div>
+    <div>
+        <label class="radio-button" for="hard">
+            <input type="radio" id="hard" name="difficulty" value="hard">
+            Hard
+        </label>
+        
+    </div>
+    <div>
+        <label class="radio-button" for="veryHard">
+            <input type="radio" id="veryHard" name="difficulty" value="veryHard">
+            Very Hard
+        </label>  
+    </div>
+    <div class="form-submission">
+        <a href="/">Cancel</a>
+        <button type="submit">Play</button>
+    </div>
+</form>

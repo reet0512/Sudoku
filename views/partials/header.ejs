@@ -1,0 +1,26 @@
+<header>
+    <nav class="header-nav">
+        <a class="header-title" href="/">Sudoku</a>
+        <ul>
+            <% if(process.env.LOGIN_STATUS == 'Null') { %>
+                <li>
+                    <a href="/users/register">Register</a>
+                </li>
+                <li>
+                    <a href="/users/login">Login</a>
+                </li>
+            <%} else { %>
+                <li>
+                    <a href="/users/followers">Follow</a>
+                </li>
+                <li>
+                    <a href="/users/<%=process.env.LOGIN_STATUS%>">View</a>
+                </li>
+                <li>
+                    <a href="/users/logout">Logout</a>
+                </li>
+            <%} %>
+           
+        </ul>
+    </nav>
+</header>

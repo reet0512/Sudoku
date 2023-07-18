@@ -1,0 +1,38 @@
+form {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.form-submission {
+    padding-top: 2vh;
+}
+
+.form-submission a {
+    font-size: 1rem;
+    font-weight: 100;
+    border: 2px black;
+    border-style: solid;
+    background-color: rgb(205, 112, 112);
+}
+
+.form-submission button{
+    font-size: 1rem;
+    font-weight: 100;
+    padding: 8px;
+    border: 2px black;
+    border-style: solid;
+    background-color: rgb(38, 171, 115);
+}
+
+.user-footer {
+    padding-top: 2vh;
+    padding-left: 2vw;
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.user-footer a{
+    color: rgb(145, 145, 250);
+    text-decoration: underline;
+    font-family:Arial, Helvetica, sans-serif;
+}

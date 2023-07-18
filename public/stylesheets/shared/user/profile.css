@@ -1,0 +1,45 @@
+.profile-page {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap:wrap;
+}
+
+.profile-username {
+    margin: 2vh 30vw;
+    text-align: center;
+}
+
+.profile-action {
+    font-size: 1rem;
+    font-weight: 100;
+    width: fit-content;
+    border: 1px black;
+    border-radius: 20%;
+    border-style: solid;
+    background-color: rgb(167, 167, 167);
+    margin-left: 7vw
+}
+
+
+.profile-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.profile-pic {
+    margin-right: 10vw;
+}
+
+.profile-pic img {
+    height: 270px;
+    width: 180px;
+}
+
+.profile-follow {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
