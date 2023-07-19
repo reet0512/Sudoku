@@ -37,7 +37,6 @@ router.post('/solution', (req, res) => {
             if(acceptable(board, i, val)) {
                 board[i] = val
             } else {
-                console.log('Here')
                 let errorMessage = 'No solutions possible'
                 res.render('sudoku/custom', {errorMessage})
                 return
