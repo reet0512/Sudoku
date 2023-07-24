@@ -39,6 +39,7 @@ router.post('/register', async(req, res) => {
 
 async function renderRegisterPage (res, user, hasError = null) {
     try{
+        // let allUsers =await User.deleteMany({})
         const params = {
             user: user
         }

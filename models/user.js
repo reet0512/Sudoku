@@ -43,6 +43,11 @@ const userSchema = new mongoose.Schema({
         required: true,
         default: [0, 0, 0, 0]
     },
+    gamesWon: {
+        type: [Number],
+        required: true,
+        default: [0, 0, 0, 0]
+    },
     profileImageName: {
         type: String,
         required: true,

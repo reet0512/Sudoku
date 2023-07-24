@@ -8,20 +8,29 @@ form {
 }
 
 .form-submission a {
+    color: black;
     font-size: 1rem;
     font-weight: 100;
-    border: 2px black;
-    border-style: solid;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 2px black solid;
+    border-radius: 5px;
     background-color: rgb(205, 112, 112);
 }
 
 .form-submission button{
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 100;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 8px;
-    border: 2px black;
-    border-style: solid;
+    border: 2px black solid;
+    border-radius: 5px;
     background-color: rgb(38, 171, 115);
+}
+
+form-submission-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .user-footer {

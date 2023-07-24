@@ -1,26 +1,33 @@
+<h2 class="page-heading"><%= outputDiff %> Puzzle</h2>
 <div class="page-container">
-    <div class="custom-solution">
-        <% for(let i = 0; i < 9; i++) {%>
-            <div>
-            <% for(let j = 0; j < 9; j++) { %>
-                <% if((i < 3 && (j >= 3 && j < 6)) || ((i >= 3 && i < 6) && (j < 3 || j >= 6)) || (i >= 6 && (j >= 3 && j < 6))) { %>
-                    <% if(gameBoard[(i * 9) + j] != 0) {%>
-                        <span class="even-section"><%= gameBoard[(i * 9) + j]%></span>
-                    <% } else {%>
-                        <input class="even-section" name="block-<%= i * 9 + j%>" min="1" max="9" type="number">
-                    <%} %>
-                <%} else { %>
-                    <% if(gameBoard[(i * 9) + j] != 0) {%>
-                        <span class="odd-section"><%= gameBoard[(i * 9) + j]%></span>
-                    <% } else {%>
-                        <input class="odd-section" name="block-<%= i * 9 + j%>" min="1" max="9" type="number">
+    <form action="/sudoku/checkSolution" method="POST">
+        <div class="sudoku-board">
+            <% for(let i = 0; i < 9; i++) {%>
+                <div>
+                <% for(let j = 0; j < 9; j++) { %>
+                    <% if((i < 3 && (j >= 3 && j < 6)) || ((i >= 3 && i < 6) && (j < 3 || j >= 6)) || (i >= 6 && (j >= 3 && j < 6))) { %>
+                        <% if(gameBoard[(i * 9) + j] != 0) {%>
+                            <input class="even-section" name="block-<%= i * 9 + j%>" value="<%= gameBoard[(i * 9) + j]%>" readonly>
+                        <% } else {%>
+                            <input class="even-section input-user" name="block-<%= i * 9 + j%>" min="1" max="9" type="number">
+                        <%} %>
+                    <%} else { %>
+                        <% if(gameBoard[(i * 9) + j] != 0) {%>
+                            <input class="odd-section" name="block-<%= i * 9 + j%>" value="<%= gameBoard[(i * 9) + j]%>" readonly>
+                        <% } else {%>
+                            <input class="odd-section input-user" name="block-<%= i * 9 + j%>" min="1" max="9" type="number">
+                        <%} %>
                     <%} %>
                 <%} %>
+                </div>
             <%} %>
+            <div class="form-submission page-container">
+                <button type="submit">Submit solution</button>
             </div>
-        <%} %>
-    </div>
+        </div>
+    </form>
+    
     <div class="user-footer">
-        <a href="/sudoku/game/solution">Solution</a>
+        <a href="/sudoku/game/solution">Solution (No win point for checked solutions)</a>
     </div>
 </div>

@@ -21,16 +21,23 @@
             <div class="profile-action">
                 <a href="/users/<%=user.id%>/edit">Edit</a>
             </div>
-            <h4>Number of easy games played: <%= user.gamesPlayed[0]%></h4>
-            <h4>Number of medium games played: <%= user.gamesPlayed[1]%></h4>
-            <h4>Number of hard games played: <%= user.gamesPlayed[2]%></h4>
-            <h4>Number of very hard games played: <%= user.gamesPlayed[3]%></h4>
+            <h4>Easy games W/L: <%= user.gamesWon[0] + '/' + (user.gamesPlayed[0] - user.gamesWon[0])%></h4>
+            <h4>Medium games W/L: <%= user.gamesWon[1] + '/' + (user.gamesPlayed[1] - user.gamesWon[1])%></h4>
+            <h4>Hard games W/L: <%= user.gamesWon[2] + '/' + (user.gamesPlayed[2] - user.gamesWon[2])%></h4>
+            <h4>Very Hard games W/L: <%= user.gamesWon[3] + '/' + (user.gamesPlayed[3] - user.gamesWon[3])%></h4>
             <h4>Total number of games played: 
                 <% let sum = 0%>
                 <% for(let i = 0; i < 4; i++) {%>
                     <% sum += user.gamesPlayed[i]%>
                 <% }%>
                 <%= sum %>
+            </h4>
+            <h4>Percentage of games won: 
+                <% let winSum = 0%>
+                <% for(let i = 0; i < 4; i++) {%>
+                    <% winSum += user.gamesWon[i]%>
+                <% }%>
+                <%= sum === 0 ? '0%' : ((winSum / sum) * 100).toFixed(2) + '%' %>
             </h4>
         </div>
     </div>

@@ -43,7 +43,9 @@ a {
     font-size: 1.5rem;
     margin: 2vh 2vw;
     background-color: #b2bb6a;
-    border-radius: 15%;
+    border: 3px solid black;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 input::-webkit-outer-spin-button,

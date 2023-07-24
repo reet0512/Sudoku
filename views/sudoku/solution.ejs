@@ -1,20 +1,21 @@
 <h2 class="page-heading">Solution</h2>
 <div class="page-container">
-    <div class="custom-solution">
+    <div class="sudoku-board">
         <% for (let i = 0; i < 9; i++) { %>
             <div>
             <% for(let j = 0; j < 9; j++) {%>
                 <% if((i < 3 && (j >= 3 && j < 6)) || ((i >= 3 && i < 6) && (j < 3 || j >= 6)) || (i >= 6 && (j >= 3 && j < 6))) { %>
-                    <span class="even-section"><%= board[(i * 9) + j]%></span>
+                    <input class="even-section" value="<%= board[(i * 9) + j]%>" readonly>
                 <%} else { %>
-                    <span class="odd-section"><%= board[(i * 9) + j]%></span>
+                    <input class="odd-section" value="<%= board[(i * 9) + j]%>" readonly>
                 <%} %>
-                <!-- <span><%= board[(i * 9) + j]%></span> -->
             <% } %>
             </div>
         <% } %>
     </div>
-    <div class="user-footer">
-        <a href="/sudoku/custom">Try another board</a>
-    </div>
+    <% if(showAnother) {%>
+        <div class="user-footer">
+            <a href="/sudoku/custom">Try another board</a>
+        </div>
+    <% }%>
 </div>

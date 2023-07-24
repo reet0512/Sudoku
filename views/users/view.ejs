@@ -25,16 +25,23 @@
                     <a href="/users/follow/<%=viewUser.id%>">Follow</a>
                 <% }%>
             </div>
-            <h4>Number of easy games played: <%= viewUser.gamesPlayed[0]%></h4>
-            <h4>Number of medium games played: <%= viewUser.gamesPlayed[1]%></h4>
-            <h4>Number of hard games played: <%= viewUser.gamesPlayed[2]%></h4>
-            <h4>Number of very hard games played: <%= viewUser.gamesPlayed[3]%></h4>
+            <h4>Easy games W/L: <%= viewUser.gamesWon[0] + '/' + (viewUser.gamesPlayed[0] - viewUser.gamesWon[0])%></h4>
+            <h4>Medium games W/L: <%= viewUser.gamesWon[1] + '/' + (viewUser.gamesPlayed[1] - viewUser.gamesWon[1])%></h4>
+            <h4>Hard games W/L: <%= viewUser.gamesWon[2] + '/' + (viewUser.gamesPlayed[2] - viewUser.gamesWon[2])%></h4>
+            <h4>Very Hard games W/L: <%= viewUser.gamesWon[3] + '/' + (viewUser.gamesPlayed[3] - viewUser.gamesWon[3])%></h4>
             <h4>Total number of games played: 
                 <% let sum = 0%>
                 <% for(let i = 0; i < 4; i++) {%>
                     <% sum += viewUser.gamesPlayed[i]%>
                 <% }%>
                 <%= sum %>
+            </h4>
+            <h4>Percentage of games won: 
+                <% let winSum = 0%>
+                <% for(let i = 0; i < 4; i++) {%>
+                    <% winSum += viewUser.gamesWon[i]%>
+                <% }%>
+                <%= sum === 0 ? '0%' : ((winSum / sum) * 100).toFixed(2) + '%' %>
             </h4>
         </div>
     </div>

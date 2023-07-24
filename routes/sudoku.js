@@ -14,6 +14,7 @@ const shuffleArray = array => {
 // Declaring some global variables
 let NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 let board = new Array(81).fill(0)
+let diff = 'easy'
 const NUM_SQUARES = 81
 const DIFFICULTY = {
     'easy': 5,
@@ -56,7 +57,8 @@ router.post('/solution', (req, res) => {
     }
     solve()
 
-    res.render('sudoku/solution', {board})
+    let showAnother = true
+    res.render('sudoku/solution', {board, showAnother})
 })
 
 router.get('/new', (req, res) => {
@@ -69,7 +71,7 @@ router.post('/new', (req, res) => {
 })
 
 router.get('/new/:difficulty', async(req, res) => {
-    const diff = req.params.difficulty
+    diff = req.params.difficulty
     board = new Array(81).fill(0)
 
     // Fill board with a solved sudoku puzzle
@@ -115,19 +117,72 @@ router.get('/new/:difficulty', async(req, res) => {
         }
         attempts--
     }
-
-    if(process.env.LOGIN_STATUS != 'Null') {
-        const index = DIFFICULTY_OPTIONS.indexOf(diff)
-        const user = await User.findById(process.env.LOGIN_STATUS).exec()
-        user.gamesPlayed[index]++
-        user.save()
+    try {
+        if(process.env.LOGIN_STATUS != 'Null') {
+            const index = DIFFICULTY_OPTIONS.indexOf(diff)
+            const user = await User.findById(process.env.LOGIN_STATUS).exec()
+            user.gamesPlayed[index]++
+            user.save()
+            process.env.UPDATE_ONCE = 'false'
+        }
+    } catch(err) {
+        console.log(err)
     }
+    
+    outputDiff = diff == 'veryHard' ? 'Very Hard' : (diff[0].toUpperCase() + diff.substring(1))
+    res.render('sudoku/game', {gameBoard, outputDiff})
+})
 
-    res.render('sudoku/game', {gameBoard})
+router.post('/checkSolution', async(req, res) => {
+    let tempBoard = new Array(81).fill(0)
+    let correct = true
+    for(let i = 0; i < 81; i++) {
+        let val = parseInt(req.body['block-'+i])
+        if(isNaN(val) || val > 9 || val < 1 ) {
+            correct = false
+            break
+        } else {
+            if(acceptable(tempBoard, i, val)) {
+                tempBoard[i] = val
+            } else {
+                correct = false
+                break
+            }
+        }
+    }
+    let errorMessage = null
+    
+    if(correct) {
+        errorMessage = 'Congratulations on solving the puzzle!'
+        try {
+            if(process.env.LOGIN_STATUS != 'Null') {
+                if(process.env.UPDATE_ONCE == 'false') {
+                    const index = DIFFICULTY_OPTIONS.indexOf(diff)
+                    const user = await User.findById(process.env.LOGIN_STATUS).exec()
+                    user.gamesWon[index]++
+                    user.save()
+                    errorMessage += ' Your win count has incremented by 1.'
+                } else {
+                    errorMessage += ' However, this will not count towards an extra win.'
+                }
+
+            }
+        } catch(err) {
+            console.log(err)
+        }
+        
+    } else 
+        errorMessage = 'There was an error in your solution'
+
+    process.env.UPDATE_ONCE = 'true'
+    let showAnother = false
+    res.render('sudoku/solution', {board, showAnother, errorMessage})
 })
 
 router.get('/game/solution', (req, res) => {
-    res.render('sudoku/gameSolution', {board})
+    process.env.UPDATE_ONCE = 'true'
+    let showAnother = false
+    res.render('sudoku/solution', {board, showAnother})
 })
 
 // Conversion methods

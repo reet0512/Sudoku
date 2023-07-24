@@ -30,7 +30,6 @@ db.once('open', () => {
   console.log('Connected to Mongoose')
 })
 
-
 app.use('/', indexRouter)
 app.use('/users', userRouter)
 app.use('/sudoku', sudokuRouter)

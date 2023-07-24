@@ -1,19 +1,21 @@
-<h2>Edit User</h2>
-<form action="/users/<%=user.id%>/edit" method="POST">
-    <div>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" value="<%= user.username %>"">
-    </div>
-    <div>
-        <label for="firstName">First Name</label>
-        <input type="text" id="firstName" name="firstName" value="<%= user.firstName %>"">
-    </div>
-    <div>
-        <label for="lastName">Last Name</label>
-        <input type="text" id="lastName" name="lastName" value="<%= user.lastName %>"">
-    </div>
-    <div>
-        <a href="/users/<%=user.id%>">Cancel</a>
-        <button type="submit">Edit</button>
-    </div>
-</form>
+<h2 class="page-heading">Edit User</h2>
+<div class="page-container">
+    <form action="/users/<%=user.id%>/edit" method="POST">
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" value="<%= user.username %>"">
+        </div>
+        <div>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" value="<%= user.firstName %>"">
+        </div>
+        <div>
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" value="<%= user.lastName %>"">
+        </div>
+        <div class="form-submission">
+            <a href="/users/<%=user.id%>">Cancel</a>
+            <button type="submit">Edit</button>
+        </div>
+    </form>
+</div>

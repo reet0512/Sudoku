@@ -14,9 +14,8 @@
     font-size: 1rem;
     font-weight: 100;
     width: fit-content;
-    border: 1px black;
-    border-radius: 20%;
-    border-style: solid;
+    border: 1px solid black;
+    border-radius: 20px;
     background-color: rgb(167, 167, 167);
     margin-left: 7vw
 }
