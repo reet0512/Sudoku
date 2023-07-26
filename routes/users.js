@@ -164,7 +164,8 @@ router.post('/:id/edit', async(req, res) => {
             const updatedUser = await user.save()
             res.redirect('/users/' + req.params.id)
         } else {
-            res.redirect('/users/'+req.params.id+'/edit')
+            errorMessage = "Username already taken"
+            res.render('users/edit', {user, errorMessage})
         }
     } catch {
         errorMessage = 'Error editing user'

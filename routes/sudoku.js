@@ -19,8 +19,8 @@ const NUM_SQUARES = 81
 const DIFFICULTY = {
     'easy': 5,
     'medium': 15,
-    'hard': 25,
-    'veryHard': 45
+    'hard': 30,
+    'veryHard': 60
 }
 const DIFFICULTY_OPTIONS = ['easy', 'medium', 'hard', 'veryHard']
 
